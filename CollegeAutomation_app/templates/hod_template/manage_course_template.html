@@ -1,0 +1,47 @@
+{% extends 'hod_template/base_template.html' %}
+{% block page_title %}
+Manage Course
+{% endblock page_title %}
+{% block main_content %}
+    <!-- Main content -->
+    <style type="text/css">
+      table    { border:ridge 5px rgb(48, 14, 14); background-color:#F6F6F6; color:#FFF; }
+      table td { border:inset 1px rgb(71, 138, 118); }
+    </style>
+    <section class="content">
+      <div class="container-fluid">
+
+
+           <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <!-- /.card-header -->
+              <div class="card-body table-responsive p-0">
+                <table class="table table-hover text-nowrap">
+                  <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>Course Name</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  {% for course in courses %}
+                    <tr>
+                      <td>{{ course.id }}</td>
+                      <td>{{ course.course_name }}</td>
+                      <td><a href="/edit_course/{{ course.id }}" class="btn btn-success" style="background-color:rgb(88, 56, 56); border:ridge 3px rgb(61, 117, 6);">Edit</a></td>
+                    </tr>
+                  {% endfor %}
+                  </tbody>
+                </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- /.content -->
+{% endblock main_content %}
